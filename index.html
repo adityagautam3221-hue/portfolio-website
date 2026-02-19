@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aditya Portfolio</title>
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Pacifico&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+    margin:0;
+    font-family:'Poppins', sans-serif;
+    background:#000;
+    color:#fff;
+}
+
+/* NAVBAR */
+.navbar{
+    background:#000;
+    padding:15px 0;
+}
+.navbar-brand{
+    font-weight:700;
+    font-size:22px;
+    color:#ff1e1e !important;
+}
+.nav-link{
+    color:#fff !important;
+    margin-left:20px;
+}
+.nav-link:hover{
+    color:#ff1e1e !important;
+}
+
+/* HERO SECTION */
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    position:relative;
+    overflow:hidden;
+}
+
+.vertical-text{
+    position:absolute;
+    left:-60px;
+    top:50%;
+    transform:translateY(-50%) rotate(-90deg);
+    font-size:45px;
+    font-weight:700;
+    letter-spacing:6px;
+    color:#ff1e1e;
+}
+
+.hero h4{
+    font-size:28px;
+}
+
+.cursive{
+    font-family:'Pacifico', cursive;
+    color:#ff1e1e;
+}
+
+.hero h1{
+    font-size:65px;
+    font-weight:700;
+    color:#ff1e1e;
+    margin:20px 0;
+}
+
+.hero p{
+    color:#ccc;
+    max-width:500px;
+}
+
+.btn-red{
+    background:#ff1e1e;
+    color:#fff;
+    border:none;
+}
+.btn-red:hover{
+    background:#cc0000;
+}
+
+.image-wrapper{
+    position:relative;
+    display:inline-block;
+}
+
+.image-wrapper::before{
+    content:"";
+    position:absolute;
+    width:480px;
+    height:480px;
+    background:#ff1e1e;
+    border-radius:50%;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    z-index:0;
+}
+
+.image-wrapper img{
+    width:360px;
+    position:relative;
+    z-index:1;
+}
+
+/* SECTIONS */
+section{
+    padding:100px 0;
+}
+
+.section-title{
+    text-align:center;
+    font-size:40px;
+    font-weight:700;
+    color:#ff1e1e;
+    margin-bottom:60px;
+}
+
+/* SERVICES */
+.service-box{
+    background:#111;
+    padding:30px;
+    border-radius:10px;
+    transition:0.3s;
+    text-align:center;
+}
+.service-box:hover{
+    background:#ff1e1e;
+}
+
+/* PROJECTS */
+.project-box{
+    background:#111;
+    padding:25px;
+    border-radius:10px;
+    transition:0.3s;
+}
+.project-box:hover{
+    transform:translateY(-8px);
+}
+
+/* CONTACT */
+.contact-form input,
+.contact-form textarea{
+    /* background:#111; */
+    border:none;
+    color:#d11212;
+    color: white;
+}
+.contact-form input:focus,
+.contact-form textarea:focus{
+    /* background:#111; */
+    color:#5d5959;
+    box-shadow:none;
+    border:1px solid #ff1e1e;
+}
+
+/* FOOTER */
+footer{
+    background:#111;
+    text-align:center;
+    padding:20px;
+    color:#aaa;
+}
+
+/* skills */
+/* SKILLS SECTION */
+.skills-section{
+    background:#000;
+    padding:100px 0;
+}
+
+.skills-subtitle{
+    color:#aaa;
+    margin-bottom:20px;
+}
+
+.skill-item{
+    margin-bottom:30px;
+}
+
+.skill-info{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:8px;
+    font-weight:600;
+}
+
+.skill-bar{
+    background:#222;
+    height:18px;
+    border-radius:4px;
+    overflow:hidden;
+}
+
+.skill-fill{
+    height:100%;
+    border-radius:4px;
+    transition:1s ease;
+}
+
+/* MULTI COLORS */
+.bg-red{ background:#ff1e1e; }
+.bg-blue{ background:#1e90ff; }
+.bg-yellow{ background:#ffd700; }
+.bg-black{ background:#555; }
+.bg-green{ background:#28a745; }
+.bg-purple{ background:#6f42c1; }
+
+
+/* SERVICES SECTION */
+.services-section{
+    background:#0b0b0b;
+    padding:100px 0;
+}
+
+.section-tag{
+    color:#ff1e1e;
+    font-size:14px;
+    letter-spacing:2px;
+    font-weight:600;
+}
+
+.section-title{
+    font-size:40px;
+    font-weight:700;
+    margin:15px 0;
+}
+
+.section-subtitle{
+    color:#aaa;
+    max-width:600px;
+    margin:auto;
+}
+
+.title-line{
+    width:60px;
+    height:3px;
+    background:#ff1e1e;
+    margin:20px auto 0;
+}
+
+/* SERVICE CARD */
+.service-card{
+    background:#111;
+    padding:30px;
+    border-radius:12px;
+    border:1px solid #1f1f1f;
+    transition:0.4s;
+    height:100%;
+}
+
+.service-card:hover{
+    border:1px solid #ff1e1e;
+    transform:translateY(-8px);
+    box-shadow:0 0 20px rgba(255,30,30,0.3);
+}
+
+.service-icon{
+    font-size:35px;
+    margin-bottom:20px;
+    color:#ff1e1e;
+}
+
+.service-card h5{
+    font-weight:600;
+    margin-bottom:15px;
+}
+
+.service-card p{
+    color:#bbb;
+    font-size:14px;
+}
+
+.service-card a{
+    color:#ff1e1e;
+    text-decoration:none;
+    font-size:14px;
+}
+
+.service-card a:hover{
+    text-decoration:underline;
+}
+
+/* about css */
+
+/* ABOUT SECTION */
+.about-section{
+    background:#0b0b0b;
+    padding:100px 0;
+}
+
+.about-img img{
+    border-radius:15px;
+    box-shadow:0 0 25px rgba(255,30,30,0.3);
+    transition:0.4s;
+}
+
+.about-img img:hover{
+    transform:scale(1.05);
+}
+
+.about-content p{
+    color:#bbb;
+    margin-bottom:15px;
+}
+
+.btn-about{
+    display:inline-block;
+    background:#ff1e1e;
+    color:#fff;
+    padding:10px 25px;
+    border-radius:30px;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.btn-about:hover{
+    background:#fff;
+    color:#ff1e1e;
+}
+
+/* Responsive spacing */
+@media(max-width:768px){
+    .about-img{
+        margin-bottom:30px;
+        text-align:center;
+    }
+}
+
+/* PROJECT SECTION */
+.project-section{
+    background:#0b0b0b;
+    padding:100px 0;
+}
+
+/* Grid Layout */
+.project-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:30px;
+}
+
+/* Project Card */
+.project-card{
+    background:#111;
+    border-radius:12px;
+    overflow:hidden;
+    border:1px solid #1f1f1f;
+    height:400px;
+    display:flex;
+    flex-direction:column;
+    transition:0.4s;
+}
+
+.project-card:hover{
+    transform:translateY(-8px);
+    border:1px solid #ff1e1e;
+    box-shadow:0 0 20px rgba(255,30,30,0.3);
+}
+
+/* 60% Image */
+.project-img{
+    height:60%;
+    overflow:hidden;
+}
+
+.project-img img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* 40% Content */
+.project-content{
+    height:40%;
+    padding:20px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+}
+
+.project-content p{
+    color:#bbb;
+    font-size:14px;
+}
+
+.project-btn{
+    display:inline-block;
+    background:#ff1e1e;
+    color:#fff;
+    padding:8px 18px;
+    border-radius:20px;
+    text-decoration:none;
+    font-size:14px;
+    transition:0.3s;
+}
+
+.project-btn:hover{
+    background:#fff;
+    color:#ff1e1e;
+}
+
+/* Responsive */
+@media(max-width:992px){
+    .project-grid{
+        grid-template-columns:1fr;
+    }
+}
+
+
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg fixed-top">
+<div class="container">
+<a class="navbar-brand" href="#">Aditya</a>
+
+<button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+<span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse justify-content-end" id="navmenu">
+<ul class="navbar-nav">
+<li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+<li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+<li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+<li class="nav-item"><a class="nav-link" href="#services">Skills</a></li>
+<li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+<li class="nav-item"><a class="nav-link btn btn-red ms-3 px-4" href="#contact">Contact</a></li>
+</ul>
+</div>
+</div>
+</nav>
+
+<!-- HERO -->
+<section id="home" class="hero">
+<!-- <div class="vertical-text">PORTFOLIO DESIGN</div> -->
+<div class="container">
+<div class="row align-items-center">
+
+<div class="col-lg-6">
+<h4>Hi, I'm <span class="cursive">Aditya</span></h4>
+<h1>Web Designer</h1>
+<p>
+Creative web designer building modern, responsive and visually attractive websites.
+Focused on clean UI and powerful user experiences.
+</p>
+<a href="#contact" class="btn btn-red btn-lg mt-3">Hire Me</a>
+</div>
+
+<div class="col-lg-6 text-center">
+<div class="image-wrapper">
+<img src="img/pp.jpg" alt="Profile Image">
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- ABOUT SECTION -->
+<section id="about" class="about-section">
+    <div class="container">
+        <div class="row align-items-center">
+
+            <!-- LEFT SIDE (IMAGE) -->
+            <div class="col-md-6 about-img">
+                <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e"
+                     alt="About Image"
+                     class="img-fluid">
+            </div>
+
+            <!-- RIGHT SIDE (TEXT) -->
+            <div class="col-md-6 about-content">
+                <span class="section-tag">ABOUT ME</span>
+                <h2 class="section-title">Creative Web Designer</h2>
+                <p>
+                    I am a passionate web designer and frontend developer
+                    focused on building modern, responsive and user-friendly
+                    websites. I love turning creative ideas into reality using
+                    clean code and beautiful design.
+                </p>
+
+                <p>
+                    With strong knowledge of HTML, CSS, Bootstrap and JavaScript,
+                    I create visually appealing and performance-optimized websites.
+                    My goal is to deliver professional digital experiences.
+                </p>
+
+                <a href="#contact" class="btn-about">Contact Me</a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- services -->
+<section id="services" class="services-section">
+    <div class="container">
+
+        <div class="text-center mb-5">
+            <span class="section-tag">SERVICES</span>
+            <h2 class="section-title">My Services</h2>
+            <p class="section-subtitle">
+                Professional and creative solutions tailored to your needs.
+            </p>
+            <div class="title-line"></div>
+        </div>
+
+        <div class="row g-4">
+
+            <!-- Service 1 -->
+            <div class="col-md-4">
+                <div class="service-card">
+                    <div class="service-icon">📸</div>
+                    <h5>Web Design</h5>
+                    <p>Modern and responsive website design with clean UI.</p>
+                    <a href="#">Read More</a>
+                </div>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="col-md-4">
+                <div class="service-card">
+                    <div class="service-icon">💻</div>
+                    <h5>Frontend Development</h5>
+                    <p>HTML, CSS, Bootstrap and JavaScript development.</p>
+                    <a href="#">Read More</a>
+                </div>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="col-md-4">
+                <div class="service-card">
+                    <div class="service-icon">🎨</div>
+                    <h5>UI/UX Design</h5>
+                    <p>User-focused design for better experience and results.</p>
+                    <a href="#">Read More</a>
+                </div>
+            </div>
+
+            <!-- Service 4 -->
+            <div class="col-md-4">
+                <div class="service-card">
+                    <div class="service-icon">⚙️</div>
+                    <h5>Website Optimization</h5>
+                    <p>Improve speed, performance and SEO ranking.</p>
+                    <a href="#">Read More</a>
+                </div>
+            </div>
+
+            <!-- Service 5 -->
+            <div class="col-md-4">
+                <div class="service-card">
+                    <div class="service-icon">🛠</div>
+                    <h5>Website Maintenance</h5>
+                    <p>24/7 support and regular website updates.</p>
+                    <a href="#">Read More</a>
+                </div>
+            </div>
+
+            <!-- Service 6 -->
+            <div class="col-md-4">
+                <div class="service-card">
+                    <div class="service-icon">🌐</div>
+                    <h5>Responsive Design</h5>
+                    <p>Fully mobile-friendly and cross-browser websites.</p>
+                    <a href="#">Read More</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- SKILLS -->
+<section id="skills" class="skills-section">
+    <div class="container">
+
+        <h2 class="section-title">Skills</h2>
+        <p class="skills-subtitle text-center">Things that I'm good at.</p>
+
+        <div class="row mt-5">
+
+            <!-- LEFT -->
+            <div class="col-md-6">
+
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span>HTML</span>
+                        <span>90%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-fill bg-red" style="width:90%"></div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span>JavaScript</span>
+                        <span>75%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-fill bg-black" style="width:75%"></div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span>WordPress</span>
+                        <span>85%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-fill bg-yellow" style="width:85%"></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- RIGHT -->
+            <div class="col-md-6">
+
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span>CSS</span>
+                        <span>85%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-fill bg-blue" style="width:85%"></div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span>Bootstrap</span>
+                        <span>80%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-fill bg-green" style="width:80%"></div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span>UI Design</span>
+                        <span>70%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-fill bg-purple" style="width:70%"></div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- PROJECTS -->
+<!-- PROJECT SECTION -->
+<section id="projects" class="project-section">
+    <div class="container">
+
+        <div class="text-center mb-5">
+            <span class="section-tag">PROJECTS</span>
+            <h2 class="section-title">My Projects</h2>
+        </div>
+
+        <div class="project-grid">
+
+            <!-- Project 1 -->
+            <div class="project-card">
+                <div class="project-img">
+                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085" alt="Project 1">
+                </div>
+                <div class="project-content">
+                    <h5>Portfolio Website</h5>
+                    <p>Modern responsive portfolio website design.</p>
+                    <a href="#" class="project-btn">View Project</a>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project-card">
+                <div class="project-img">
+                    <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d" alt="Project 2">
+                </div>
+                <div class="project-content">
+                    <h5>E-commerce Website</h5>
+                    <p>Online shopping website with modern UI.</p>
+                    <a href="#" class="project-btn">View Project</a>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="project-card">
+                <div class="project-img">
+                    <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6" alt="Project 3">
+                </div>
+                <div class="project-content">
+                    <h5>Business Landing Page</h5>
+                    <p>Professional landing page for company growth.</p>
+                    <a href="#" class="project-btn">View Project</a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- CONTACT -->
+<section id="contact">
+<div class="container">
+<h2 class="section-title">Contact Me</h2>
+
+<div class="row justify-content-center">
+<div class="col-md-6">
+<form class="contact-form">
+<div class="mb-3">
+<input type="text" class="form-control" placeholder="Your Name" required>
+</div>
+<div class="mb-3">
+<input type="email" class="form-control" placeholder="Your Email" required>
+</div>
+<div class="mb-3">
+<textarea class="form-control" rows="4" placeholder="Your Message" required></textarea>
+</div>
+<button class="btn btn-red w-100">Send Message</button>
+</form>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+© 2026 Aditya Portfolio | All Rights Reserved
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
